@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Percentage Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 10px;
+      width: calc(100% - 22px);
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Percentage Calculator</h2>
+    <label for="total">Total Value:</label>
+    <input type="number" id="total" placeholder="Enter total value">
+    <label for="part">Part Value:</label>
+    <input type="number" id="part" placeholder="Enter part value">
+    <button onclick="calculatePercentage()">Calculate Percentage</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculatePercentage() {
+      const total = parseFloat(document.getElementById('total').value);
+      const part = parseFloat(document.getElementById('part').value);
+
+      if (isNaN(total) || isNaN(part) || total === 0) {
+        document.getElementById('result').textContent = 'Please enter valid numbers!';
+        return;
+      }
+
+      const percentage = (part / total) * 100;
+      document.getElementById('result').textContent = `Result: ${percentage.toFixed(2)}%`;
+    }
+  </script>
+</body>
+</html>
